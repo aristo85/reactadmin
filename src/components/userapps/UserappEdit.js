@@ -2,11 +2,14 @@ import {
   ArrayInput,
   Edit,
   ReferenceInput,
+  required,
   SelectInput,
   SimpleForm,
   SimpleFormIterator,
   TextInput,
 } from "react-admin";
+
+const requireValidate = [required()]
 
 const UserEdit = (props) => (
   <Edit {...props}>
@@ -14,22 +17,22 @@ const UserEdit = (props) => (
       <TextInput disabled source="id" />
       <ArrayInput source="sportTypes" label="Вид спорта">
         <SimpleFormIterator>
-          <TextInput />
+          <TextInput validate={requireValidate} />
         </SimpleFormIterator>
       </ArrayInput>
       <ArrayInput source="aim" label="Цель">
         <SimpleFormIterator>
-          <TextInput />
+          <TextInput validate={requireValidate} />
         </SimpleFormIterator>
       </ArrayInput>
       <ArrayInput source="place" label="Место">
         <SimpleFormIterator>
-          <TextInput />
+          <TextInput validate={requireValidate} />
         </SimpleFormIterator>
       </ArrayInput>
       <ArrayInput source="serviceTypes" label="Услуги">
         <SimpleFormIterator>
-          <TextInput />
+          <TextInput validate={requireValidate} />
         </SimpleFormIterator>
       </ArrayInput>
       <TextInput source="coachGender" label="Пол тренера" />
