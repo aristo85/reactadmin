@@ -9,7 +9,7 @@ import {
   TextInput,
 } from "react-admin";
 
-const requireValidate = [required()]
+const requireValidate = [required()];
 
 const UserEdit = (props) => (
   <Edit {...props}>
@@ -35,7 +35,15 @@ const UserEdit = (props) => (
           <TextInput validate={requireValidate} />
         </SimpleFormIterator>
       </ArrayInput>
-      <TextInput source="coachGender" label="Пол тренера" />
+      <SelectInput
+        source="coachGender"
+        label="Пол тренера"
+        choices={[
+          { id: "female", name: "female" },
+          { id: "male", name: "male" },
+          { id: "any", name: "any" },
+        ]}
+      />
       <TextInput source="equipments" label="Оборудование дома" />
       <TextInput source="priceMax" label="Стоимость Макс." />
       <TextInput source="priceMin" label="Стоимость Мин." />
