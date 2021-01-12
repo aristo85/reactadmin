@@ -5,6 +5,7 @@ import UserEdit from "./components/users/UserEdit";
 import UserappList from "./components/userapps/UserappList";
 import authProvider from "./components/providers/authProvider";
 import UserappEdit from "./components/userapps/UserappEdit";
+import { Urls } from "./environment";
 
 const httpClient = (url, options = {}) => {
   if (!options.headers) {
@@ -16,10 +17,11 @@ const httpClient = (url, options = {}) => {
 };
 
 function App() {
+  console.log(process.env.NODE_ENV === "development");
   return (
     <Admin
       dataProvider={restProvider(
-        "https://coachnest.herokuapp.com/api/gym",
+        process.env.NODE_ENV === "development" ? Urls.local : Urls.heroku,
         httpClient
       )}
       authProvider={authProvider}

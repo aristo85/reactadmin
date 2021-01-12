@@ -11,9 +11,9 @@ const UserEdit = (props) => (
         source="role"
         label="Роль"
         choices={[
-          { id: "trainer", name: "female" },
-          { id: "user", name: "male" },
-          { id: "admin", name: "any" },
+          { id: "trainer", name: "trainer" },
+          { id: "user", name: "user" },
+          { id: "admin", name: "admin" },
         ]}
       />
       <TextInput source="phone" label="Телефон" />
