@@ -1,5 +1,5 @@
 import * as React from "react";
-import { List, Datagrid, TextField, EmailField, EditButton, ArrayField, SingleFieldList, ChipField, ReferenceField } from "react-admin";
+import { List, Datagrid, TextField, EditButton, ArrayField, SingleFieldList, ChipField, ReferenceField } from "react-admin";
 import { StringToLabelObject } from "../StringToLabelObject";
 
 const UserappList = (props) => (

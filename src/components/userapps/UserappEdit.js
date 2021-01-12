@@ -1,7 +1,6 @@
 import {
   ArrayInput,
   Edit,
-  ReferenceInput,
   required,
   SelectInput,
   SimpleForm,
