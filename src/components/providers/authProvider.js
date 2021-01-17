@@ -20,7 +20,9 @@ const authProvider = {
         return response.json();
       })
       .then((auth) => {
-        console.log(auth);
+        if (auth.user.role !== "admin") {
+          throw new Error("you are not admin");
+        }
         localStorage.setItem("auth", JSON.stringify(auth.token));
       })
       .catch(() => {

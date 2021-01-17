@@ -6,6 +6,8 @@ import UserappList from "./components/userapps/UserappList";
 import authProvider from "./components/providers/authProvider";
 import UserappEdit from "./components/userapps/UserappEdit";
 import { Urls } from "./environment";
+import CoachProfileList from "./components/coachProfiles/coachProfileList";
+import CoachProfileEdit from "./components/coachProfiles/CoachProfileEdit";
 
 const httpClient = (url, options = {}) => {
   if (!options.headers) {
@@ -17,7 +19,6 @@ const httpClient = (url, options = {}) => {
 };
 
 function App() {
-  console.log(process.env.NODE_ENV === "development");
   return (
     <Admin
       dataProvider={restProvider(
@@ -37,6 +38,12 @@ function App() {
         list={UserappList}
         edit={UserappEdit}
         options={{ label: "Заявки" }}
+      />
+      <Resource
+        name="coach-profiles"
+        list={CoachProfileList}
+        edit={CoachProfileEdit}
+        options={{ label: "Профиль тренера" }}
       />
     </Admin>
   );
