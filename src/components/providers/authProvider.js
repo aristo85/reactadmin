@@ -2,16 +2,11 @@ import { Urls } from "../../environment";
 
 const authProvider = {
   login: ({ username, password }) => {
-    const request = new Request(
-      `${
-        process.env.NODE_ENV === "development" ? Urls.local : Urls.heroku
-      }/auth/login`,
-      {
-        method: "POST",
-        body: JSON.stringify({ email: username, password }),
-        headers: new Headers({ "Content-Type": "application/json" }),
-      }
-    );
+    const request = new Request(`${Urls.server}/auth/login`, {
+      method: "POST",
+      body: JSON.stringify({ email: username, password }),
+      headers: new Headers({ "Content-Type": "application/json" }),
+    });
     return fetch(request)
       .then((response) => {
         if (response.status < 200 || response.status >= 300) {

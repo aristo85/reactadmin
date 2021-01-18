@@ -21,10 +21,7 @@ const httpClient = (url, options = {}) => {
 function App() {
   return (
     <Admin
-      dataProvider={restProvider(
-        process.env.NODE_ENV === "development" ? Urls.local : Urls.heroku,
-        httpClient
-      )}
+      dataProvider={restProvider(Urls.server, httpClient)}
       authProvider={authProvider}
     >
       <Resource
